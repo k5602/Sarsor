@@ -1,0 +1,14 @@
+streamlit
+nltk
+googletrans==4.0.0-rc1
+textblob
+requests
+langdetect
+camel-tools
+pytesseract
+PyMuPDF
+beautifulsoup4
+scikit-learn
+networkx
+rake-nltk
+python-Levenshtein 
