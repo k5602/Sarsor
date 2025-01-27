@@ -9,7 +9,7 @@ import langdetect
 from collections import Counter
 from nltk.tokenize import sent_tokenize, word_tokenize
 from camel_tools.utils.normalize import normalize_unicode
-import fitz  # PyMuPDF
+import fitz
 import pytesseract
 from PIL import Image
 from bs4 import BeautifulSoup
@@ -20,10 +20,15 @@ import rake_nltk
 from sklearn.metrics.pairwise import cosine_similarity
 from datetime import datetime
 import re as regex
+import os
 
-nltk.download('stopwords', quiet=True)
-nltk.download('punkt', quiet=True)
-
+nltk.data.path.append("/home/appuser/nltk_data")
+os.makedirs("/home/appuser/nltk_data", exist_ok=True)
+nltk.download('punkt', quiet=True, download_dir="/home/appuser/nltk_data")
+nltk.download('stopwords', quiet=True, download_dir="/home/appuser/nltk_data")
+nltk.download('punkt_tab', quiet=True, download_dir="/home/appuser/nltk_data")  # Critical fix
+nltk.download('wordnet', quiet=True, download_dir="/home/appuser/nltk_data")
+nltk.download('omw-1.4', quiet=True, download_dir="/home/appuser/nltk_data")  # For lemmatization
 translator = Translator()
 
 def arabic_sentence_tokenize(text):
